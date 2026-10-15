@@ -1,0 +1,13 @@
+{
+  "name": "repoharbor-subversion-adaptation",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node tests/test-core.cjs",
+    "test:renderer": "node tests/test-renderer.cjs"
+  }
+}

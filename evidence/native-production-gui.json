@@ -1,0 +1,27 @@
+{
+  "bundle": "com.repoharbor.track1",
+  "hapSha256": "aeea7dc1ab1d2138e66fad5a5e33c2bcda761ad0fe981528e74eb03d1cc4d451",
+  "signatureVerified": true,
+  "currentUsbProfileBound": true,
+  "sameBootPidUidBound": true,
+  "nativeProductionGui": {
+    "publicHttpsDiscovery": true,
+    "directory26": true,
+    "readmeActualContent": true,
+    "logCount50": true,
+    "historicalCompare": true
+  },
+  "nativeCoreUnitTestsExecuted": false,
+  "hostCore": 35,
+  "hostRenderer": 6,
+  "hostSkipped": 0,
+  "scope": "HTTP read-only SVN repository browser; not Apache SVN CLI checkout/commit port",
+  "sourceUploaded": false,
+  "communitySubmitted": false,
+  "appGalleryPublished": false,
+  "history": {
+    "r1": "pidof absent treated as transport failure; no install or launch",
+    "r2": "Windows HDC rejected forward slash local path; no install or launch",
+    "r3": "one installed signed HAP launch; real production GUI over Apache public HTTPS"
+  }
+}

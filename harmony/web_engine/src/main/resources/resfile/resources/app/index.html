@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none';"><title>RepoHarbor - SVN 仓库浏览器</title>
+  <link rel="stylesheet" href="styles/svn-client.css">
+  <!-- CodeMirror 代码编辑器（用于文件查看和 diff） -->
+  <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="vendor/codemirror/theme/material-darker.css">
+</head>
+<body>
+  <!-- 顶部工具栏 -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <span class="logo">RepoHarbor</span>
+      <div class="custom-dropdown" id="conn-select">
+        <div class="dropdown-selected">-- 选择连接 --</div>
+        <div class="dropdown-options"></div>
+      </div>
+      <button id="btn-manage-conn" title="管理连接">⚙️</button>
+      <div class="toolbar-separator"></div>
+      <button id="btn-refresh" title="刷新">🔄</button>
+      <button id="btn-back" title="返回上级" disabled>⬆️</button>
+    </div>
+    <div class="toolbar-right"><button id="btn-release-notices" title="隐私与开源许可">隐私与许可</button>
+      <button id="btn-view-tree" class="view-btn active" title="仓库浏览">📂</button>
+      <button id="btn-view-log" class="view-btn" title="提交日志">📋</button>
+      <button id="btn-view-diff" class="view-btn" title="文件版本逐行对照">🔀</button>
+    </div>
+  </div>
+
+  <!-- 主内容区域 -->
+  <div class="main">
+    <!-- 左侧：仓库目录树 -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">仓库浏览</span>
+        <span class="sidebar-path" id="current-path">/</span>
+      </div>
+      <div class="sidebar-content" id="repo-tree">
+        <div class="sidebar-empty">
+          <p>请先配置 SVN 连接</p>
+          <button id="btn-add-conn">添加连接</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 侧边栏拖动条 -->
+    <div class="sidebar-resizer" id="sidebarResizer"></div>
+
+    <!-- 右侧：内容区域 -->
+    <div class="content-panel" id="contentPanel">
+      <!-- 文件查看视图 -->
+      <div class="view" id="view-file">
+        <div class="content-header">
+          <span id="file-title">未选择文件</span>
+          <span id="file-revision" class="revision-badge"></span>
+        </div>
+        <div class="content-wrapper">
+          <div class="empty-state" id="file-empty">
+            <p>📄</p>
+            <p>从左侧选择文件查看内容</p>
+          </div>
+          <textarea id="file-viewer" style="display:none;"></textarea>
+        </div>
+      </div>
+
+      <!-- 日志查看视图 -->
+      <div class="view" id="view-log" style="display:none;">
+        <div class="content-header">
+          <span>提交日志</span>
+          <div class="log-controls">
+            <div class="custom-dropdown small" id="log-limit">
+              <div class="dropdown-selected" data-value="50">最近 50 条</div>
+              <div class="dropdown-options">
+                <div class="dropdown-option" data-value="20">最近 20 条</div>
+                <div class="dropdown-option active" data-value="50">最近 50 条</div>
+                <div class="dropdown-option" data-value="100">最近 100 条</div>
+              </div>
+            </div>
+            <button id="btn-load-log">加载</button>
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="log-list" id="log-list">
+            <div class="empty-state">
+              <p>📋</p>
+              <p>点击"加载"获取提交日志</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diff 对比视图 -->
+      <div class="view" id="view-diff" style="display:none;">
+        <div class="content-header">
+          <span>文件版本逐行对照</span>
+          <div class="diff-controls">
+            <label>版本A:</label>
+            <input type="text" id="diff-rev-a" placeholder="如 100" class="rev-input">
+            <label>版本B:</label>
+            <input type="text" id="diff-rev-b" placeholder="如 200" class="rev-input">
+            <button id="btn-compare">对比</button>
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="diff-container" id="diff-container">
+            <div class="empty-state">
+              <p>🔀</p>
+              <p>选择文件后输入版本号进行对比</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部状态栏 -->
+  <div class="statusbar">
+    <span id="status-conn">未连接</span>
+    <span id="status-path">/</span>
+    <span id="status-info"></span>
+  </div>
+
+  <!-- 连接管理弹窗 -->
+  <div class="modal" id="conn-modal" style="display:none;">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>连接管理</h3>
+        <button class="modal-close" id="btn-close-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- 连接列表 -->
+        <div class="conn-list-section">
+          <h4>已保存的连接</h4>
+          <div class="conn-list" id="conn-list"></div>
+        </div>
+        <!-- 添加/编辑连接 -->
+        <div class="conn-form-section">
+          <h4 id="conn-form-title">添加新连接</h4>
+          <div class="form-group">
+            <label>连接名称</label>
+            <input type="text" id="conn-name" placeholder="如：项目仓库">
+          </div>
+          <div class="form-group">
+            <label>服务器地址</label>
+            <input type="text" id="conn-url" placeholder="如：https://svn.example.com/repo">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>用户名</label>
+              <input type="text" id="conn-user" placeholder="用户名">
+            </div>
+            <div class="form-group">
+              <label>密码</label>
+              <input type="password" autocomplete="off" placeholder="仅本次会话，不保存" id="conn-pass" placeholder="密码">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button id="btn-test-conn" class="btn-secondary">测试连接</button>
+            <button id="btn-save-conn" class="btn-primary">保存</button>
+          </div>
+          <div id="conn-test-result" class="test-result"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CodeMirror 核心 -->
+  <script src="vendor/codemirror/lib/codemirror.js"></script>
+  <!-- 语言模式 -->
+  <script src="vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+  <script src="vendor/codemirror/mode/xml/xml.js"></script>
+  <script src="vendor/codemirror/mode/javascript/javascript.js"></script>
+  <script src="vendor/codemirror/mode/css/css.js"></script>
+  <script src="vendor/codemirror/mode/python/python.js"></script>
+  <script src="vendor/codemirror/mode/markdown/markdown.js"></script>
+  <script src="vendor/codemirror/mode/clike/clike.js"></script>
+  <!-- 功能插件 -->
+  <script src="vendor/codemirror/addon/selection/active-line.js"></script>
+  <script src="vendor/codemirror/addon/fold/foldcode.js"></script>
+  <script src="vendor/codemirror/addon/fold/foldgutter.js"></script>
+  <script src="vendor/codemirror/addon/fold/brace-fold.js"></script>
+
+  <!-- 应用逻辑 -->
+  <script src="renderer.js"></script>
+<div id="release-notice-dialog" role="dialog" aria-modal="true" aria-label="RepoHarbor 隐私与开源许可" style="display:none;position:fixed;inset:6%;z-index:10000;background:#20252c;border:1px solid #667;padding:20px;color:#eee;flex-direction:column;gap:12px"><h2>RepoHarbor 1.0.1 · 隐私与开源许可</h2><div><button id="release-notice-main">隐私与许可</button> <button id="release-notice-credits">完整运行时告知</button> <button id="release-notice-prev">上一页</button> <button id="release-notice-next">下一页</button> <button id="release-notice-last">末页</button> <span id="release-notice-page"></span> <button id="release-notice-close">关闭</button></div><pre id="release-notice-text" tabindex="0" style="flex:1;overflow:auto;white-space:pre-wrap;user-select:text;font:16px/1.6 sans-serif"></pre></div><script src="release-notices.js"></script></body>
+</html>
+

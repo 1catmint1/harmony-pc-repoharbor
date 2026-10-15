@@ -1,0 +1,32 @@
+{
+  "total": 6,
+  "passed": 6,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "Directory late reply cannot overwrite newer path",
+      "passed": true
+    },
+    {
+      "name": "File late reply cannot overwrite selected file",
+      "passed": true
+    },
+    {
+      "name": "Log late reply cannot overwrite new connection",
+      "passed": true
+    },
+    {
+      "name": "Compare uses selected file instead of directory",
+      "passed": true
+    },
+    {
+      "name": "Compare without file does not issue requests",
+      "passed": true
+    },
+    {
+      "name": "Server HTML is escaped in directory/error output",
+      "passed": true
+    }
+  ]
+}

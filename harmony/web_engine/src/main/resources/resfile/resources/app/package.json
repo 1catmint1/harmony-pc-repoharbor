@@ -1,0 +1,11 @@
+{
+  "name": "subversion",
+  "version": "1.0.0",
+  "description": "SVN 客户端 - 基于 Electron 壳方案的轻量级版本控制工具",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": ["svn", "subversion", "version-control"],
+  "license": "MIT"
+}

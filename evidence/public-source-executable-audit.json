@@ -1,0 +1,12 @@
+{
+  "product": "RepoHarbor",
+  "removedPublicLauncher": "harmony/web_engine/src/main/resources/resfile/electron",
+  "originalBytes": 6584,
+  "originalSha256": "c0b5650a41074855505147a6d9f6545b2a23a3a02285cda0d49aed57bb90bf22",
+  "privateBuildPreserved": true,
+  "submittedAppUnchanged": true,
+  "noExecutableMagic": true,
+  "files": 307,
+  "bytes": 41396148,
+  "at": "2026-10-15T20:46:57.759061+00:00"
+}

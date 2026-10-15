@@ -1,0 +1,33 @@
+{
+  "bundle": "com.repoharbor.track1",
+  "version": "1.0.1",
+  "usbRun": "r8",
+  "usbHapSha256": "d73ddee893cd92211060abc10a6f8f8a822b16a823ac886c0cae171f1910abcd",
+  "sameBootPidUidBound": true,
+  "gui": {
+    "httpsDirectory26": true,
+    "readmeContent": true,
+    "privacyVisible": true,
+    "completeCreditsFirstAndLastPage": true
+  },
+  "historicalR6": {
+    "readme": true,
+    "logsVisible": true,
+    "comparison1903577to1932863": true
+  },
+  "history": {
+    "r4": "entry had no INTERNET; EPERM failed and process released",
+    "r5": "network fixed; GUI directory/readme/compare observed; released",
+    "host": "35 core and 6 renderer historical; not rerun as R8 target units"
+  },
+  "formalSignatureVerified": true,
+  "payloadFilesEqual": 81,
+  "formalReleaseDirectlyExecuted": false,
+  "permissions": [
+    "ohos.permission.INTERNET",
+    "ohos.permission.PREPARE_APP_TERMINATE"
+  ],
+  "ownedProcessReleased": true,
+  "reviewSubmitted": false,
+  "published": false
+}

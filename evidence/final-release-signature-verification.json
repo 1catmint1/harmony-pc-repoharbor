@@ -1,0 +1,33 @@
+{
+  "bundle": "com.repoharbor.track1",
+  "version": "1.0.1",
+  "type": "release",
+  "distributionType": "app_gallery",
+  "noDeviceBinding": true,
+  "allowedAcls": [],
+  "signatureVerified": true,
+  "profileVerified": true,
+  "artifacts": {
+    "hap": {
+      "sha256": "ddff2992e097b583609e7eccd0e7d0dec0aaba3ace5c0d1ff4d76e923adb7f2b",
+      "bytes": 217541289,
+      "officialSignatureVerified": true,
+      "embeddedProfileVerified": true,
+      "embeddedProfileSha256": "b98ad33c1f7e9aaba6ddf51e276f76a88f1b73702757630ab86a182bc18c2e68",
+      "certificateMatches": true
+    },
+    "app": {
+      "sha256": "cde486d9a6200503516efbfe1a335ce1f5932e425608a6120244d540d34638fa",
+      "bytes": 90636247,
+      "officialSignatureVerified": true,
+      "embeddedProfileVerified": true,
+      "embeddedProfileSha256": "b98ad33c1f7e9aaba6ddf51e276f76a88f1b73702757630ab86a182bc18c2e68",
+      "certificateMatches": true
+    }
+  },
+  "hapSha256": "ddff2992e097b583609e7eccd0e7d0dec0aaba3ace5c0d1ff4d76e923adb7f2b",
+  "targetExecuted": false,
+  "appGallerySubmitted": false,
+  "appGalleryPublished": false,
+  "createdAt": "2026-10-15T18:46:41.832Z"
+}

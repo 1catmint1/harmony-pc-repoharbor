@@ -1,0 +1,40 @@
+{
+  "endpoint": "https://svn.apache.org/repos/asf/subversion/trunk/",
+  "time": "2026-10-15T07:54:59.782Z",
+  "completed": true,
+  "discovery": {
+    "head": "1939131",
+    "root": "https://svn.apache.org/repos/asf",
+    "me": "https://svn.apache.org/repos/asf/!svn/me",
+    "revisionRoot": "https://svn.apache.org/repos/asf/!svn/rvr"
+  },
+  "operations": [
+    {
+      "operation": "directory",
+      "count": 26,
+      "names": [
+        ".github",
+        "build",
+        "contrib",
+        "doc",
+        "notes",
+        "subversion",
+        "tools",
+        ".asf.yaml",
+        ".clang-format",
+        ".editorconfig",
+        ".ycm_extra_conf.py",
+        "aclocal.m4.in"
+      ]
+    },
+    {
+      "operation": "log"
+    },
+    {
+      "operation": "file",
+      "length": 2222,
+      "historicalRevision": "1932863",
+      "historicalLength": 2222
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "sourcePakSha256": "f5cb194d4f4428357a1429a90628b856a9830436fbd4fd74e2343ecce1ac641b",
+  "decodedResources": 1507,
+  "decodedBytes": 34210591,
+  "found": [
+    {
+      "resourceId": 43111,
+      "compression": "brotli",
+      "bytes": 11197969,
+      "sha256": "7b748bde9feea820f3180d4fe337daa1bb2fcff9303ad912d1d1c817426d01c5",
+      "licenseTextHits": 846,
+      "file": "embedded-runtime-credits-43111.html",
+      "title": "Credits"
+    }
+  ]
+}

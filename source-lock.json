@@ -1,0 +1,24 @@
+{
+  "upstream": "https://atomgit.com/OpenHarmonyPCDeveloper/ohos_subversion",
+  "commit": "8aa3ca01b55f9ec7f9958cc70f8967adbf6d26e4",
+  "baselineFilesSha256": {
+    "ohos_hap/AppScope/resources/base/element/string.json": "eec775fb599398ff50ccaf4d6a6b9bef0571e33439a50d39eafbb4fdf71019e0",
+    "ohos_hap/electron/src/main/resources/base/element/string.json": "36fb0444ab30322d877fca645cd78352171be619596fad995df35370aee45019",
+    "ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html": "fa133e7e02bcf656d73a085c33658ae8f550cd1ff7f987370d504ff9018555c9",
+    "ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js": "34ae264e06951109d0966a6fcb48bc3ec6ee7aec14849b8d6f015fd420e33834",
+    "ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js": "49f3f55f9481f1de7bc8d79c4b096fcc49c037e8521e85d3f119b5fbbe391be4"
+  },
+  "newModulesLicense": "MIT",
+  "scope": "new protocol/config/session modules and integration patch; full inherited frontend and native runtime are not redistributed",
+  "release": {
+    "version": "1.0.1",
+    "source": "harmony/",
+    "permissions": [
+      "ohos.permission.INTERNET",
+      "ohos.permission.PREPARE_APP_TERMINATE"
+    ],
+    "notice": "full runtime Credits extracted from same resources.pak; native MIT/BSD/LGPL and exact ArkTS dependency notices retained",
+    "correspondingSource": "third_party/SOURCE-MANIFEST.json",
+    "runtimeSdkRebuilt": false
+  }
+}

@@ -1,0 +1,12 @@
+/node_modules/
+.work/
+*.hap
+*.app
+*.hnp
+*.p12
+*.p7b
+*.cer
+*.key
+*.crt
+*.so
+private-signing.json

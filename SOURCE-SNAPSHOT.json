@@ -1,0 +1,11 @@
+{
+  "product": "RepoHarbor",
+  "sourceRepository": "https://atomgit.com/2301_80739235/repoharbor-subversion-adaptation",
+  "sourceCommit": "1dee6ceed9bed92f6181afafe4ff7a30c591aecb",
+  "sourceSelection": [
+    "current committed source tree"
+  ],
+  "runtimeArtifactsExcluded": true,
+  "privateSigningExcluded": true,
+  "preparedAt": "2026-10-15T21:03:43.235589+00:00"
+}

@@ -1,0 +1,22 @@
+{
+  "bundle": "com.repoharbor.track1",
+  "sha256": "cf37e32567e9777a6c2b021bda9c9d8dcbcd6fdcaed1bfc25fc69e874c1ecdec",
+  "bytes": 194713927,
+  "outputKind": "unsigned HAP",
+  "manifestPermissions": [
+    "ohos.permission.INTERNET",
+    "ohos.permission.PREPARE_APP_TERMINATE"
+  ],
+  "packagedSourceMatches": {
+    "main.js": "890ab923706d37c9b471cd5773ab253f48c90516d33ba1e79d45fe0814cb45a6",
+    "renderer.js": "e65a40f659e9d84c7ecd4289fe9019a026e8c742a75362f6dec5d8ec29355751",
+    "index.html": "69f3b02f52595830e06dc4c3d758ce798552d415dd9721241911acfb3dff30a4",
+    "dav-client.cjs": "f41c802d5ea0bace3cb1a43c5dbe28e656e1262057f71c62e95f69b8bf0cfaf5",
+    "connection-store.cjs": "c303966340384300a8df4b11fb129bf7c83bd7eb206fe2f542ff94dab7d96d07",
+    "request-session.cjs": "12e63514131c2d937e71c50ef886f714107ef281dce5fed3182495b4ae3930c7"
+  },
+  "signed": false,
+  "targetExecuted": false,
+  "communitySubmitted": false,
+  "appGalleryPublished": false
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "libadapter.so",
+    "sha256": "ab034bb00926549a0f59d839da7ec48618e97d3c50e9e333bc9a8169745b5e9d",
+    "bytes": 2621200,
+    "verified": true
+  },
+  {
+    "name": "libc++_shared.so",
+    "sha256": "b6fc12319aeacc6c2a69177bc39f73d75f3c461699796dab157bfa8a8a880f3f",
+    "bytes": 1825624,
+    "verified": true
+  },
+  {
+    "name": "libelectron.so",
+    "sha256": "537b12ed044d3dff7c6bc7636bc71dce821da9af37e3e7709c032f544e939be7",
+    "bytes": 167471912,
+    "verified": true
+  },
+  {
+    "name": "libffmpeg.so",
+    "sha256": "6c2c53207ceed092e039c6f35fb96e6182ff81c3b42d840b580fc50b2f979e1c",
+    "bytes": 2181528,
+    "verified": true
+  }
+]

@@ -1,0 +1,11 @@
+# Electron/Chromium/FFmpeg 对应材料
+
+基于社区ohos_subversion固定提交8aa3ca01b55f9ec7f9958cc70f8967adbf6d26e4，四个原生库与原LFS对象size/SHA256一致。libelectron字符串为Electron/0.0.0、Chrome/132.0.6834.161及Node20.18.1，不能由此推断完整发行版本号或其所有构建参数。未重新编译整套Electron。
+
+同一运行资源resources.pak，SHA256 f5cb194d4f4428357a1429a90628b856a9830436fbd4fd74e2343ecce1ac641b，包含resource43111的Brotli压缩Credits。原样提取正文11197969字节，SHA256 7b748bde9feea820f3180d4fe337daa1bb2fcff9303ad912d1d1c817426d01c5；harmony/内legal/LICENSES.chromium.html保留完整告知，应用内显示为纯文本，不执行其脚本。不是借用另一版Electron的许可文件。
+
+Electron官方鸿蒙端口 https://atomgit.com/openharmony-sig/electron 提供Electron MIT原文、ArkTS/adapter源码及构建指导；Chromium来源清单 https://atomgit.com/openharmony-tpc/manifest/tree/pc_chromium_132/chromium.xml 。ArkTS原版权头保留，BSD根许可来自官方Chromium132分支LICENSE，不能把新增MIT许可替代它。Chromium Credits中的各组件仍适用各自许可。
+
+FFmpeg动态库明确含LGPL version2.1 or later及N-118887-g99f17d50d3。官方 https://atomgit.com/openharmony-tpc/chromium_third_party_ffmpeg 的pc_chromium_132固定提交aa4ce134ebd5a396894f0930ea5261ca77af99ae，其Chrome/linux/arm64版本头与该字符串一致，完整源码镜像随仓库third_party/提供。摘要见SOURCE-MANIFEST.json；不把版本字符串匹配宣称为已重建同字节库。源码保留Chromium补丁、生成配置及BUILD.gn；按官方Electron端口与132仓库清单取得其余构建依赖，在匹配Linux/ARM64-OHOS交叉SDK环境使用独立构建目录、限制2个任务重建。不要对已有目录盲目运行含reset/clean的上游脚本。源码和许可允许相应修改、重建和替换动态库，不额外限制调试修改所需的逆向工程；设备安装需使用者自己的合法签名材料。
+
+CodeMirror5.65.16 MIT、saxes6.0.0 ISC、xmlchars2.2.0 MIT原文保留在前端vendor/node_modules；实际ArkTS依赖inversify6.0.1 MIT与reflect-metadata0.2.1 Apache2.0及CopyrightNotice一并放入legal/和应用内通知。

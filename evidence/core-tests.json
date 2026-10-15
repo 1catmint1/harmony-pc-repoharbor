@@ -1,0 +1,148 @@
+{
+  "total": 35,
+  "passed": 35,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "DAV arbitrary prefix, entities and UTF8 names",
+      "passed": true
+    },
+    {
+      "name": "DAV directory sorting and direct-child filtering",
+      "passed": true
+    },
+    {
+      "name": "DAV non-success properties excluded",
+      "passed": true
+    },
+    {
+      "name": "DAV cross-origin href rejected",
+      "passed": true
+    },
+    {
+      "name": "DAV sibling path rejected",
+      "passed": true
+    },
+    {
+      "name": "DAV duplicate entry rejected",
+      "passed": true
+    },
+    {
+      "name": "DAV malformed percent encoding rejected",
+      "passed": true
+    },
+    {
+      "name": "SVN log namespace and revision element",
+      "passed": true
+    },
+    {
+      "name": "Malformed XML rejected",
+      "passed": true
+    },
+    {
+      "name": "DTD entity declarations rejected",
+      "passed": true
+    },
+    {
+      "name": "XML depth limit",
+      "passed": true
+    },
+    {
+      "name": "XML byte limit",
+      "passed": true
+    },
+    {
+      "name": "Path components are encoded once",
+      "passed": true
+    },
+    {
+      "name": "Traversal rejected",
+      "passed": true
+    },
+    {
+      "name": "Userinfo URL rejected",
+      "passed": true
+    },
+    {
+      "name": "Plain HTTP credentials rejected",
+      "passed": true
+    },
+    {
+      "name": "Non-network scheme rejected",
+      "passed": true
+    },
+    {
+      "name": "Revision injection and floating revisions rejected",
+      "passed": true
+    },
+    {
+      "name": "Revision zero supported",
+      "passed": true
+    },
+    {
+      "name": "Credentials never persisted in store",
+      "passed": true
+    },
+    {
+      "name": "Legacy plaintext credentials migrated away",
+      "passed": true
+    },
+    {
+      "name": "Failed save leaves state unchanged",
+      "passed": true
+    },
+    {
+      "name": "No temporary leftovers",
+      "passed": true
+    },
+    {
+      "name": "Request older response invalidated",
+      "passed": true
+    },
+    {
+      "name": "Connection reset invalidates all requests",
+      "passed": true
+    },
+    {
+      "name": "Bounded HTTP response",
+      "passed": true
+    },
+    {
+      "name": "Oversized response rejected",
+      "passed": true
+    },
+    {
+      "name": "Invalid UTF8 rejected",
+      "passed": true
+    },
+    {
+      "name": "Absolute timeout closes connection",
+      "passed": true
+    },
+    {
+      "name": "Cross-origin request rejected before network",
+      "passed": true
+    },
+    {
+      "name": "Redirect returned without credential forwarding",
+      "passed": true
+    },
+    {
+      "name": "Cancellation interrupts request",
+      "passed": true
+    },
+    {
+      "name": "Already cancelled request rejects safely",
+      "passed": true
+    },
+    {
+      "name": "Untrusted TLS certificate rejected by default",
+      "passed": true
+    },
+    {
+      "name": "Explicit test CA succeeds without disabling verification",
+      "passed": true
+    }
+  ]
+}

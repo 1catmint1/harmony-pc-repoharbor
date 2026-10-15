@@ -1,0 +1,601 @@
+diff --git a/ohos_hap/AppScope/resources/base/element/string.json b/ohos_hap/AppScope/resources/base/element/string.json
+index 839b2a3..046561e 100644
+--- a/ohos_hap/AppScope/resources/base/element/string.json
++++ b/ohos_hap/AppScope/resources/base/element/string.json
+@@ -5 +5 @@
+-      "value": "Electron"
++      "value": "RepoHarbor"
+diff --git a/ohos_hap/electron/src/main/resources/base/element/string.json b/ohos_hap/electron/src/main/resources/base/element/string.json
+index 9408ed5..438f039 100644
+--- a/ohos_hap/electron/src/main/resources/base/element/string.json
++++ b/ohos_hap/electron/src/main/resources/base/element/string.json
+@@ -13 +13 @@
+-      "value": "Electron"
++      "value": "RepoHarbor"
+@@ -52 +52 @@
+-}
+\ No newline at end of file
++}
+diff --git a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html
+index b4862bc..fa427e4 100644
+--- a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html
++++ b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html
+@@ -5 +5 @@
+-  <title>SVN Client - 版本控制客户端</title>
++  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none';"><title>RepoHarbor - SVN 仓库浏览器</title>
+@@ -8,2 +8,2 @@
+-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
+-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/theme/material-darker.css">
++  <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css">
++  <link rel="stylesheet" href="vendor/codemirror/theme/material-darker.css">
+@@ -15 +15 @@
+-      <span class="logo">SVN Client</span>
++      <span class="logo">RepoHarbor</span>
+@@ -28 +28 @@
+-      <button id="btn-view-diff" class="view-btn" title="版本对比">🔀</button>
++      <button id="btn-view-diff" class="view-btn" title="文件版本逐行对照">🔀</button>
+@@ -97 +97 @@
+-          <span>版本对比</span>
++          <span>文件版本逐行对照</span>
+@@ -102 +102 @@
+-            <input type="text" id="diff-rev-b" placeholder="如 HEAD" class="rev-input">
++            <input type="text" id="diff-rev-b" placeholder="如 200" class="rev-input">
+@@ -157 +157 @@
+-              <input type="password" id="conn-pass" placeholder="密码">
++              <input type="password" autocomplete="off" placeholder="仅本次会话，不保存" id="conn-pass" placeholder="密码">
+@@ -171 +171 @@
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.js"></script>
++  <script src="vendor/codemirror/lib/codemirror.js"></script>
+@@ -173,7 +173,7 @@
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/xml/xml.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/javascript/javascript.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/css/css.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/python/python.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/markdown/markdown.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/clike/clike.min.js"></script>
++  <script src="vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
++  <script src="vendor/codemirror/mode/xml/xml.js"></script>
++  <script src="vendor/codemirror/mode/javascript/javascript.js"></script>
++  <script src="vendor/codemirror/mode/css/css.js"></script>
++  <script src="vendor/codemirror/mode/python/python.js"></script>
++  <script src="vendor/codemirror/mode/markdown/markdown.js"></script>
++  <script src="vendor/codemirror/mode/clike/clike.js"></script>
+@@ -181,4 +181,4 @@
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/selection/active-line.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/fold/foldcode.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/fold/foldgutter.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/fold/brace-fold.min.js"></script>
++  <script src="vendor/codemirror/addon/selection/active-line.js"></script>
++  <script src="vendor/codemirror/addon/fold/foldcode.js"></script>
++  <script src="vendor/codemirror/addon/fold/foldgutter.js"></script>
++  <script src="vendor/codemirror/addon/fold/brace-fold.js"></script>
+@@ -189,0 +190 @@
++
+diff --git a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js
+index 637ab07..c4b27eb 100644
+--- a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js
++++ b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js
+@@ -1,9 +1,5 @@
+-// SVN Client - 主进程
+-const { app, BrowserWindow, ipcMain, dialog, screen } = require('electron');
+-const https = require('https');
+-const http = require('http');
+-const { URL } = require('url');
+-const fs = require('fs');
+-const path = require('path');
+-
+-// 防 GPU 白屏：禁用硬件加速，降级为软件渲染
++// RepoHarbor: HTTPv2 Subversion repository browser. SPDX-License-Identifier: MIT
++const {app,BrowserWindow,ipcMain,screen}=require('electron');
++const path=require('path');
++const {DavClient}=require('./dav-client.cjs');
++const {ConnectionStore}=require('./connection-store.cjs');
+@@ -11,388 +7,23 @@ app.disableHardwareAcceleration();
+-
+-let mainWindow = null;
+-
+-// 连接配置存储
+-let connections = [];
+-const configPath = path.join(app.getPath('userData'), 'svn-connections.json');
+-
+-// 加载配置
+-function loadConfig() {
+-  try {
+-    if (fs.existsSync(configPath)) {
+-      connections = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+-    }
+-  } catch (e) {
+-    connections = [];
+-  }
+-}
+-
+-// 保存配置
+-function saveConfig() {
+-  try {
+-    fs.writeFileSync(configPath, JSON.stringify(connections, null, 2), 'utf-8');
+-  } catch (e) {
+-    console.error('保存配置失败:', e);
+-  }
+-}
+-
+-// 创建窗口
+-function createWindow() {
+-  try {
+-    const display = screen.getPrimaryDisplay();
+-    const { width, height } = display.workAreaSize;
+-
+-    // 防 XComponent 崩溃：frame: true + transparent: false + resizable: true
+-    mainWindow = new BrowserWindow({
+-      width: Math.floor(width * 0.9),
+-      height: Math.floor(height * 0.85),
+-      frame: true,
+-      transparent: false,
+-      resizable: true,
+-      webPreferences: {
+-        nodeIntegration: true,
+-        contextIsolation: false
+-      }
+-    });
+-
+-    mainWindow.loadFile('index.html');
+-  } catch (e) {
+-    console.warn('[SVN] 创建窗口失败:', e.message);
+-  }
+-}
+-
+-app.whenReady().then(() => {
+-  loadConfig();
+-  createWindow();
+-});
+-
+-app.on('window-all-closed', () => {
+-  app.quit();
+-});
+-
+-// ========== SVN HTTP 请求封装 ==========
+-
+-// 发送 HTTP/HTTPS 请求
+-function svnRequest(conn, method, urlPath, headers = {}, body = null) {
+-  return new Promise((resolve, reject) => {
+-    const url = new URL(urlPath, conn.serverUrl);
+-    const client = url.protocol === 'https:' ? https : http;
+-
+-    const reqHeaders = {
+-      'User-Agent': 'SVN-Client/1.0',
+-      ...headers
+-    };
+-    // 仅在有用户名时发送认证头
+-    if (conn.username) {
+-      const auth = Buffer.from(`${conn.username}:${conn.password || ''}`).toString('base64');
+-      reqHeaders['Authorization'] = `Basic ${auth}`;
+-    }
+-
+-    const options = {
+-      hostname: url.hostname,
+-      port: url.port,
+-      path: url.pathname + url.search,
+-      method: method,
+-      headers: reqHeaders,
+-      rejectUnauthorized: false  // 允许自签名证书
+-    };
+-
+-    const req = client.request(options, (res) => {
+-      let data = '';
+-      res.on('data', chunk => data += chunk);
+-      res.on('end', () => {
+-        resolve({
+-          statusCode: res.statusCode,
+-          headers: res.headers,
+-          body: data
+-        });
+-      });
+-    });
+-
+-    req.on('error', (err) => reject(err));
+-    req.setTimeout(30000, () => {
+-      req.destroy();
+-      reject(new Error('请求超时（30秒）'));
+-    });
+-
+-    if (body) req.write(body);
+-    req.end();
+-  });
+-}
+-
+-// 解析 PROPFIND 响应（XML）
+-function parsePropfind(xml, basePath) {
+-  const items = [];
+-
+-  // 灵活的 XML 解析：支持不同命名空间前缀（D:, d:, dav: 或无前缀）
+-  const responseRegex = /<(\w+:)?response[^>]*>([\s\S]*?)<\/(\w+:)?response>/gi;
+-  const hrefRegex = /<(\w+:)?href[^>]*>([\s\S]*?)<\/(\w+:)?href>/i;
+-  const displayNameRegex = /<(\w+:)?displayname[^>]*>([\s\S]*?)<\/(\w+:)?displayname>/i;
+-  const collectionRegex = /<(\w+:)?collection[^>]*\/?>/i;
+-
+-  // 规范化 basePath：去掉末尾斜杠，用于计算相对路径
+-  const normalizedBase = basePath.replace(/\/+$/, '');
+-
+-  let match;
+-  while ((match = responseRegex.exec(xml)) !== null) {
+-    const block = match[2]; // 第二个捕获组是内容
+-    const hrefMatch = hrefRegex.exec(block);
+-    if (!hrefMatch) continue;
+-
+-    // href 内容在第四个捕获组
+-    let href = decodeURIComponent((hrefMatch[4] || hrefMatch[2] || '').trim());
+-    const hrefNoSlash = href.replace(/\/+$/, '');
+-
+-    // 跳过根路径本身
+-    if (hrefNoSlash === normalizedBase) continue;
+-
+-    // 提取文件名
+-    const name = hrefNoSlash.split('/').pop();
+-    if (!name) continue;
+-
+-    // 转为相对路径（相对于仓库根目录）
+-    let relativeHref;
+-    if (hrefNoSlash.startsWith(normalizedBase + '/')) {
+-      relativeHref = hrefNoSlash.slice(normalizedBase.length + 1);
+-    } else {
+-      relativeHref = name;
+-    }
+-    if (href.endsWith('/')) relativeHref += '/';
+-
+-    const isDir = collectionRegex.test(block);
+-    const displayMatch = displayNameRegex.exec(block);
+-    const displayName = displayMatch ? (displayMatch[4] || displayMatch[2] || '').trim() : name;
+-
+-    items.push({
+-      name: displayName || name,
+-      href: relativeHref,
+-      isDirectory: isDir
+-    });
+-  }
+-
+-  // 排序：文件夹在前，按名称排序
+-  items.sort((a, b) => {
+-    if (a.isDirectory !== b.isDirectory) return a.isDirectory ? -1 : 1;
+-    return a.name.localeCompare(b.name);
+-  });
+-
+-  return items;
+-}
+-
+-// 解析 SVN log 的 REPORT 响应
+-function parseLogReport(xml) {
+-  const logs = [];
+-  const logItemRegex = /<S:log-item>([\s\S]*?)<\/S:log-item>/gi;
+-  const revisionRegex = /revision="(\d+)"/;
+-  const authorRegex = /<dc:creator>([\s\S]*?)<\/dc:creator>/i;
+-  const dateRegex = /<dc:date>([\s\S]*?)<\/dc:date>/i;
+-  const msgRegex = /<S:message>([\s\S]*?)<\/S:message>/i;
+-
+-  let match;
+-  while ((match = logItemRegex.exec(xml)) !== null) {
+-    const block = match[1];
+-    const revMatch = revisionRegex.exec(block);
+-    const authorMatch = authorRegex.exec(block);
+-    const dateMatch = dateRegex.exec(block);
+-    const msgMatch = msgRegex.exec(block);
+-
+-    logs.push({
+-      revision: revMatch ? revMatch[1] : '',
+-      author: authorMatch ? authorMatch[1].trim() : '',
+-      date: dateMatch ? dateMatch[1].trim() : '',
+-      message: msgMatch ? msgMatch[1].trim() : ''
+-    });
+-  }
+-
+-  return logs;
+-}
+-
+-// ========== IPC 通道 ==========
+-
+-// 测试连接
+-ipcMain.handle('svn:test-connection', async (event, conn) => {
+-  try {
+-    // 使用 PROPFIND 请求测试（SVN 标准方式）
+-    const url = new URL(conn.serverUrl);
+-    const body = `<?xml version="1.0" encoding="utf-8"?>
+-<D:propfind xmlns:D="DAV:">
+-  <D:prop><D:resourcetype/></D:prop>
+-</D:propfind>`;
+-
+-    const res = await svnRequest(conn, 'PROPFIND', url.pathname || '/', {
+-      'Depth': '0',
+-      'Content-Type': 'application/xml'
+-    }, body);
+-
+-    if (res.statusCode === 207 || res.statusCode === 200) {
+-      return {
+-        success: true,
+-        isSvnServer: true,
+-        statusCode: res.statusCode,
+-        message: '连接成功'
+-      };
+-    }
+-    if (res.statusCode === 401) {
+-      return {
+-        success: true,
+-        isSvnServer: true,
+-        statusCode: 401,
+-        message: '服务器可达，需要认证（请填写用户名密码）'
+-      };
+-    }
+-    return { success: false, message: `服务器响应: ${res.statusCode}` };
+-  } catch (err) {
+-    return { success: false, message: err.message };
+-  }
+-});
+-
+-// 列出目录内容
+-ipcMain.handle('svn:list-dir', async (event, conn, repoPath) => {
+-  try {
+-    // 规范化 URL 拼接：确保 serverUrl 以 / 结尾，repoPath 不以 / 开头
+-    const base = conn.serverUrl.endsWith('/') ? conn.serverUrl : conn.serverUrl + '/';
+-    const relPath = repoPath.replace(/^\/+/, '');
+-    const url = new URL(relPath, base);
+-
+-    const body = `<?xml version="1.0" encoding="utf-8"?>
+-<D:propfind xmlns:D="DAV:" xmlns:S="http://subversion.tigris.org/xmlns/dav/">
+-  <D:prop>
+-    <D:displayname/>
+-    <D:resourcetype/>
+-    <S:baseline-relative-path/>
+-  </D:prop>
+-</D:propfind>`;
+-
+-    const res = await svnRequest(conn, 'PROPFIND', url.pathname, {
+-      'Depth': '1',
+-      'Content-Type': 'application/xml'
+-    }, body);
+-
+-    if (res.statusCode === 207 || res.statusCode === 200) {
+-      const items = parsePropfind(res.body, url.pathname);
+-      return { success: true, items };
+-    }
+-    return { success: false, message: `请求失败: ${res.statusCode}` };
+-  } catch (err) {
+-    return { success: false, message: err.message };
+-  }
+-});
+-
+-// 获取文件内容
+-ipcMain.handle('svn:get-file', async (event, conn, filePath, revision) => {
+-  try {
+-    const base = conn.serverUrl.endsWith('/') ? conn.serverUrl : conn.serverUrl + '/';
+-    const relPath = filePath.replace(/^\/+/, '');
+-    const url = new URL(relPath, base);
+-    let urlPath = url.pathname;
+-
+-    if (revision) {
+-      // 通过 !svn/ver/{rev} 获取指定版本（在路径中插入版本号）
+-      const parts = urlPath.split('/').filter(Boolean);
+-      urlPath = '/' + parts.slice(0, -1).join('/') + '/!svn/ver/' + revision + '/' + parts[parts.length - 1];
+-    }
+-
+-    const res = await svnRequest(conn, 'GET', urlPath, {}, null);
+-    if (res.statusCode === 200) {
+-      return { success: true, content: res.body };
+-    }
+-    return { success: false, message: `获取失败: ${res.statusCode}` };
+-  } catch (err) {
+-    return { success: false, message: err.message };
+-  }
+-});
+-
+-// 获取提交日志
+-ipcMain.handle('svn:get-log', async (event, conn, repoPath, limit) => {
+-  try {
+-    const base = conn.serverUrl.endsWith('/') ? conn.serverUrl : conn.serverUrl + '/';
+-    const relPath = repoPath.replace(/^\/+/, '');
+-    const url = new URL(relPath, base);
+-    const body = `<?xml version="1.0" encoding="utf-8"?>
+-<S:log-report xmlns:S="http://subversion.tigris.org/xmlns/dav/" xmlns:D="DAV:" xmlns:dc="http://purl.org/dc/elements/1.0/">
+-  <S:start-revision>1</S:start-revision>
+-  <S:end-revision>HEAD</S:end-revision>
+-  <S:limit>${limit || 50}</S:limit>
+-  <S:want-inherited-props/>
+-  <S:include-merged-revisions/>
+-  <D:prop>
+-    <dc:creator/>
+-    <dc:date/>
+-    <S:message/>
+-  </D:prop>
+-</S:log-report>`;
+-
+-    const logPath = url.pathname + '/!svn/me';
+-    const res = await svnRequest(conn, 'REPORT', logPath, {
+-      'Content-Type': 'application/xml'
+-    }, body);
+-
+-    if (res.statusCode === 200) {
+-      const logs = parseLogReport(res.body);
+-      return { success: true, logs };
+-    }
+-    return { success: false, message: `获取日志失败: ${res.statusCode}` };
+-  } catch (err) {
+-    return { success: false, message: err.message };
+-  }
+-});
+-
+-// ========== 连接配置管理 ==========
+-
+-ipcMain.handle('config:get-connections', async () => {
+-  return { success: true, connections };
+-});
+-
+-ipcMain.handle('config:save-connection', async (event, conn) => {
+-  const existing = connections.findIndex(c => c.id === conn.id);
+-  if (existing >= 0) {
+-    connections[existing] = conn;
+-  } else {
+-    conn.id = Date.now().toString();
+-    connections.push(conn);
+-  }
+-  saveConfig();
+-  return { success: true, connections };
+-});
+-
+-ipcMain.handle('config:delete-connection', async (event, id) => {
+-  connections = connections.filter(c => c.id !== id);
+-  saveConfig();
+-  return { success: true, connections };
+-});
+-
+-// ========== 文件对话框 ==========
+-
+-ipcMain.handle('dialog:openFile', async () => {
+-  const result = await dialog.showOpenDialog(mainWindow, {
+-    properties: ['openFile'],
+-    filters: [{ name: '所有文件', extensions: ['*'] }]
+-  });
+-  return result;
+-});
+-
+-ipcMain.handle('dialog:saveFile', async () => {
+-  const result = await dialog.showSaveDialog(mainWindow, {
+-    filters: [{ name: '所有文件', extensions: ['*'] }]
+-  });
+-  return result;
+-});
+-
+-// 读取本地文件
+-ipcMain.handle('file:read', async (event, filePath) => {
+-  try {
+-    const content = fs.readFileSync(filePath, 'utf-8');
+-    return { success: true, content };
+-  } catch (err) {
+-    return { success: false, error: err.message };
+-  }
+-});
+-
+-// 写入本地文件
+-ipcMain.handle('file:write', async (event, filePath, content) => {
+-  try {
+-    fs.writeFileSync(filePath, content, 'utf-8');
+-    return { success: true };
+-  } catch (err) {
+-    return { success: false, error: err.message };
+-  }
+-});
++let mainWindow,store;
++const sessions=new Map();
++function checked(event){if(!mainWindow||event.sender!==mainWindow.webContents)throw Error('无效窗口请求');}
++function resolveConnection(input){const saved=store.list().find(x=>x.id===input.id);if(!saved)throw Error('连接已删除，请重新选择');return {...saved,password:sessions.get(saved.id)||''};}
++function handle(name,body){ipcMain.handle(name,async(event,...args)=>{try{checked(event);return {success:true,...await body(...args)};}catch(error){return {success:false,message:error.message};}});}
++app.whenReady().then(()=>{
++ try{store=new ConnectionStore(path.join(app.getPath('userData'),'repo-harbor-connections.json'));}
++ catch(error){console.error('[RepoHarbor] 配置读取失败，原文件保留');store=null;}
++ const {width,height}=screen.getPrimaryDisplay().workAreaSize;
++ mainWindow=new BrowserWindow({width:Math.floor(width*.9),height:Math.floor(height*.85),frame:true,transparent:false,resizable:true,webPreferences:{nodeIntegration:true,contextIsolation:false,webSecurity:true,webviewTag:false,nodeIntegrationInSubFrames:false}});
++ mainWindow.webContents.setWindowOpenHandler?.(()=>({action:'deny'}));
++ mainWindow.webContents.on('will-navigate',(event,url)=>{if(url!==require('url').pathToFileURL(path.join(__dirname,'index.html')).href)event.preventDefault();});
++ mainWindow.loadFile(path.join(__dirname,'index.html'));
++});
++app.on('window-all-closed',()=>app.quit());
++app.on('before-quit',()=>sessions.clear());
++handle('config:get-connections',async()=>{if(!store)throw Error('配置文件无法读取，请备份后修复');return {connections:store.list()};});
++handle('config:save-connection',async input=>{if(!store)throw Error('配置不可写');const connections=store.save(input),saved=connections.find(x=>x.id===input.id)||connections[connections.length-1];sessions.set(saved.id,input.password||'');return {connections};});
++handle('config:delete-connection',async id=>{const connections=store.delete(id);sessions.delete(id);return {connections};});
++handle('svn:test-connection',async input=>({...(await new DavClient(input).test())}));
++handle('svn:list-dir',async(input,relative)=>({items:await new DavClient(resolveConnection(input)).list(relative)}));
++handle('svn:get-file',async(input,relative,revision)=>({content:await new DavClient(resolveConnection(input)).file(relative,revision)}));
++handle('svn:get-log',async(input,relative,limit)=>({logs:await new DavClient(resolveConnection(input)).log(relative,limit)}));
+diff --git a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js
+index c00dbdd..732b987 100644
+--- a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js
++++ b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js
+@@ -3,0 +4,3 @@ const path = require('path');
++const {RequestSession}=require('./request-session.cjs');
++const requests=new RequestSession();
++let currentFile=null;
+@@ -125,0 +129 @@ function initToolbar() {
++      requests.reset();currentFile=null;pathHistory=['/'];
+@@ -131,0 +136 @@ function initToolbar() {
++      requests.reset();currentFile=null;
+@@ -172 +177 @@ async function loadConnections() {
+-  }
++  } else {document.getElementById('status-info').textContent=result.message||'读取连接失败';}
+@@ -273 +278 @@ function updateConnList() {
+-    <div class="conn-item" data-id="${conn.id}">
++    <div class="conn-item" data-id="${escapeHtml(conn.id)}">
+@@ -275,2 +280,2 @@ function updateConnList() {
+-        <span class="conn-item-name">${conn.name}</span>
+-        <span class="conn-item-url">${conn.serverUrl}</span>
++        <span class="conn-item-name">${escapeHtml(conn.name)}</span>
++        <span class="conn-item-url">${escapeHtml(conn.serverUrl)}</span>
+@@ -279,2 +284,2 @@ function updateConnList() {
+-        <button onclick="editConnection('${conn.id}')">编辑</button>
+-        <button class="delete" onclick="deleteConnection('${conn.id}')">删除</button>
++        <button data-edit-id="${conn.id}">编辑</button>
++        <button class="delete" data-delete-id="${conn.id}">删除</button>
+@@ -283,0 +289,2 @@ function updateConnList() {
++  list.querySelectorAll('[data-edit-id]').forEach(el=>el.addEventListener('click',()=>window.editConnection(el.dataset.editId)));
++  list.querySelectorAll('[data-delete-id]').forEach(el=>el.addEventListener('click',()=>window.deleteConnection(el.dataset.deleteId)));
+@@ -305,0 +313 @@ window.deleteConnection = async function(id) {
++      requests.reset();currentFile=null;
+@@ -346,0 +355,2 @@ async function browseTo(repoPath, skipHistory) {
++  currentFile=null;requests.capture('file',null,'');requests.capture('diff',null,'');
++  fileViewer?.setValue('');document.getElementById('file-title').textContent='未选择文件';document.getElementById('log-list').textContent='尚未加载当前路径日志';document.getElementById('diff-container').textContent='请先选择文件';
+@@ -360 +370,3 @@ async function browseTo(repoPath, skipHistory) {
+-  const result = await ipcRenderer.invoke('svn:list-dir', currentConn, repoPath);
++  const owner=currentConn,ticket=requests.capture('directory',owner,repoPath);
++  const result = await ipcRenderer.invoke('svn:list-dir', owner, repoPath);
++  if(!requests.valid('directory',ticket,currentConn,currentPath))return;
+@@ -362 +374 @@ async function browseTo(repoPath, skipHistory) {
+-    tree.innerHTML = `<div class="sidebar-empty"><p>加载失败: ${result.message}</p></div>`;
++    tree.innerHTML = `<div class="sidebar-empty"><p>加载失败: ${escapeHtml(result.message||'未知错误')}</p></div>`;
+@@ -378 +390 @@ async function browseTo(repoPath, skipHistory) {
+-      <span class="name">${item.name}</span>
++      <span class="name">${escapeHtml(item.name)}</span>
+@@ -438,0 +451,2 @@ async function viewFile(filePath, fileName) {
++  currentFile={path:filePath,name:fileName};
++  const owner=currentConn,ticket=requests.capture('file',owner,filePath);
+@@ -452 +466,3 @@ async function viewFile(filePath, fileName) {
+-  const result = await ipcRenderer.invoke('svn:get-file', currentConn, filePath);
++  fileViewer.setValue('加载中...');
++  const result = await ipcRenderer.invoke('svn:get-file', owner, filePath);
++  if(!requests.valid('file',ticket,currentConn,currentFile?.path))return;
+@@ -460 +476 @@ async function viewFile(filePath, fileName) {
+-    fileViewer.setValue(`// 加载失败: ${result.message}`);
++    fileViewer.setValue(`// 加载失败: ${escapeHtml(result.message||'未知错误')}`);
+@@ -492 +508,3 @@ async function loadLog() {
+-  const result = await ipcRenderer.invoke('svn:get-log', currentConn, currentPath, limit);
++  const owner=currentConn,ownerPath=currentPath,ticket=requests.capture('log',owner,ownerPath);
++  const result = await ipcRenderer.invoke('svn:get-log', owner, ownerPath, limit);
++  if(!requests.valid('log',ticket,currentConn,currentPath))return;
+@@ -494 +512 @@ async function loadLog() {
+-    logList.innerHTML = `<div class="sidebar-empty"><p>加载失败: ${result.message}</p></div>`;
++    logList.innerHTML = `<div class="sidebar-empty"><p>加载失败: ${escapeHtml(result.message||'未知错误')}</p></div>`;
+@@ -504,3 +522,3 @@ async function loadLog() {
+-    <div class="log-item" data-rev="${log.revision}">
+-      <span class="log-rev">r${log.revision}</span>
+-      <span class="log-author">${log.author}</span>
++    <div class="log-item" data-rev="${escapeHtml(log.revision)}">
++      <span class="log-rev">r${escapeHtml(log.revision)}</span>
++      <span class="log-author">${escapeHtml(log.author)}</span>
+@@ -508 +526 @@ async function loadLog() {
+-      <span class="log-message">${log.message}</span>
++      <span class="log-message">${escapeHtml(log.message)}</span>
+@@ -535,0 +554,2 @@ async function compareVersions() {
++  if(!currentFile){document.getElementById('diff-container').textContent='请先从目录选择一个文件';return;}
++  const owner=currentConn,file=currentFile.path,ticket=requests.capture('diff',owner,file);
+@@ -540,2 +560,2 @@ async function compareVersions() {
+-  if (!revA || !revB) {
+-    alert('请输入两个版本号');
++  if (!/^(0|[1-9]\d{0,14})$/.test(revA) || !/^(0|[1-9]\d{0,14})$/.test(revB)) {
++    document.getElementById('diff-container').textContent='请输入两个非负整数版本号';
+@@ -550,2 +570,2 @@ async function compareVersions() {
+-    ipcRenderer.invoke('svn:get-file', currentConn, currentPath, revA),
+-    ipcRenderer.invoke('svn:get-file', currentConn, currentPath, revB)
++    ipcRenderer.invoke('svn:get-file', owner, file, revA),
++    ipcRenderer.invoke('svn:get-file', owner, file, revB)
+@@ -553,0 +574 @@ async function compareVersions() {
++  if(!requests.valid('diff',ticket,currentConn,currentFile?.path))return;
+@@ -562,0 +584 @@ async function compareVersions() {
++  if(linesA.length>10000||linesB.length>10000){container.textContent='逐行对照最多10000行，请缩小文件';return;}
+@@ -568 +590 @@ function simpleDiff(linesA, linesB, revA, revB) {
+-  let html = `<div style="padding:8px;color:#888;font-size:12px;">版本 ${revA} → ${revB}</div>`;
++  let html = `<div style="padding:8px;color:#888;font-size:12px;">逐行对照 ${escapeHtml(revA)} → ${escapeHtml(revB)}（非合并补丁）</div>`;

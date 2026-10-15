@@ -1,0 +1,13 @@
+{
+  "ffmpegRepository": "https://atomgit.com/openharmony-tpc/chromium_third_party_ffmpeg",
+  "branch": "pc_chromium_132",
+  "commit": "aa4ce134ebd5a396894f0930ea5261ca77af99ae",
+  "versionHeader": "N-118887-g99f17d50d3",
+  "versionHeaderMatchesRuntimeString": true,
+  "librarySha256": "6c2c53207ceed092e039c6f35fb96e6182ff81c3b42d840b580fc50b2f979e1c",
+  "archive": "ffmpeg-pc-chromium-132-source.tar.gz",
+  "archiveSha256": "93020364be8b687a8bf983c2722493899c5d2096fb904f038740a66f71a2720e",
+  "bytes": 16851176,
+  "sdkRebuilt": false,
+  "sourceDistribution": "local mirror prepared; public upload pending"
+}

@@ -1,0 +1,11 @@
+{
+  "bundle": "com.repoharbor.track1",
+  "type": "debug",
+  "signatureVerified": true,
+  "profileVerified": true,
+  "targetIncluded": true,
+  "hapSha256": "aeea7dc1ab1d2138e66fad5a5e33c2bcda761ad0fe981528e74eb03d1cc4d451",
+  "bytes": 196168926,
+  "targetExecuted": false,
+  "createdAt": "2026-10-15T08:56:58.786Z"
+}
