@@ -9,9 +9,9 @@
     "ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js": "49f3f55f9481f1de7bc8d79c4b096fcc49c037e8521e85d3f119b5fbbe391be4"
   },
   "newModulesLicense": "MIT",
-  "scope": "new protocol/config/session modules and integration patch; full inherited frontend and native runtime are not redistributed",
+  "scope": "RepoHarbor DAV/config/session adaptation and community Electron/ArkTS frontend; original licenses and native-runtime corresponding sources supplied under third_party",
   "release": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "source": "harmony/",
     "permissions": [
       "ohos.permission.INTERNET",

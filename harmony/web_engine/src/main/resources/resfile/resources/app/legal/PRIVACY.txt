@@ -1,4 +1,4 @@
-RepoHarbor 1.0.1 隐私与使用说明
+RepoHarbor 1.0.2 隐私与使用说明
 生效日期：2026年10月16日
 
 本应用基于社区 Electron SVN 界面，提供 HTTPS Subversion HTTPv2 仓库只读浏览、文本查看、日志及历史文本逐行对照；不包含 SVN 命令行、工作副本、checkout 或 commit。界面与运行时归原作者，本次新增 DAV 协议、连接和异步会话模块。

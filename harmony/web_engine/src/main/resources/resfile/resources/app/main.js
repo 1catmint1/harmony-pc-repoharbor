@@ -3,6 +3,10 @@ const {app,BrowserWindow,ipcMain,screen}=require('electron');
 const path=require('path');
 const {DavClient}=require('./dav-client.cjs');
 const {ConnectionStore}=require('./connection-store.cjs');
+// Preserve the existing connection profile directory while fixing application branding.
+const profileDirectory=app.getPath('userData');
+app.setName('RepoHarbor');
+app.setPath('userData',profileDirectory);
 app.disableHardwareAcceleration();
 let mainWindow,store;
 const sessions=new Map();
@@ -13,7 +17,7 @@ app.whenReady().then(()=>{
  try{store=new ConnectionStore(path.join(app.getPath('userData'),'repo-harbor-connections.json'));}
  catch(error){console.error('[RepoHarbor] 配置读取失败，原文件保留');store=null;}
  const {width,height}=screen.getPrimaryDisplay().workAreaSize;
- mainWindow=new BrowserWindow({width:Math.floor(width*.9),height:Math.floor(height*.85),frame:true,transparent:false,resizable:true,webPreferences:{nodeIntegration:true,contextIsolation:false,webSecurity:true,webviewTag:false,nodeIntegrationInSubFrames:false}});
+ mainWindow=new BrowserWindow({width:Math.floor(width*.9),height:Math.floor(height*.85),title:'RepoHarbor',frame:true,transparent:false,resizable:true,webPreferences:{nodeIntegration:true,contextIsolation:false,webSecurity:true,webviewTag:false,nodeIntegrationInSubFrames:false}});
  mainWindow.webContents.setWindowOpenHandler?.(()=>({action:'deny'}));
  mainWindow.webContents.on('will-navigate',(event,url)=>{if(url!==require('url').pathToFileURL(path.join(__dirname,'index.html')).href)event.preventDefault();});
  mainWindow.loadFile(path.join(__dirname,'index.html'));

@@ -2,8 +2,8 @@
   "app": {
     "bundleName": "com.repoharbor.track1",
     "vendor": "RepoHarbor",
-    "versionCode": 1000001,
-    "versionName": "1.0.1",
+    "versionCode": 1000002,
+    "versionName": "1.0.2",
     "icon": "$media:repoharbor_icon",
     "label": "$string:app_name",
     "configuration": "$profile:configuration",

@@ -52,12 +52,7 @@
             ]
           }
         ],
-        "metadata": [
-          {
-            "name": "ohos.ability.shortcuts",
-            "resource": "$profile:shortcuts_config"
-          }
-        ]
+        "metadata": []
       },
       {
         "name": "BrowserAbility",
@@ -76,13 +71,14 @@
           }
         ],
         "process": ":browser",
-        "icon": "$media:repoharbor_icon"
+        "icon": "$media:repoharbor_icon",
+        "label": "$string:EntryAbility_label"
       },
       {
         "name": "StatelessAbility",
         "srcEntry": "./ets/entryability/StatelessAbility.ets",
         "description": "$string:StatelessAbility_desc",
-        "label": "$string:StatelessAbility_label",
+        "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:repoharbor_icon",
         "startWindowBackground": "$color:start_window_background",
         "launchType": "specified",
